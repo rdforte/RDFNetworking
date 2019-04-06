@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "RDFNetworking"
-  spec.version      = "0.0.1"
+  spec.version      = "V0.0.1"
   spec.summary      = "URLSession Wrapper for easy networking of JSON with added abilitys for Unit Testing. "
 
   # This description is used to generate tags and improve search results.
