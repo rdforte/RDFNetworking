@@ -29,7 +29,7 @@ public class APIRequest: Request {
     public var headers: Headers?
     public var parameters: Parameters?
 
-    init(method: HTTPMethod, path: String, parameters: Parameters?, headers: Headers?) {
+    public init(method: HTTPMethod, path: String, parameters: Parameters?, headers: Headers?) {
         self.method = method
         self.path = path
         self.parameters = parameters

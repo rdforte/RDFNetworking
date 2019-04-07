@@ -22,7 +22,7 @@ public class MockSession: URLSessionProtocol {
 
     private let data: Data
 
-    init(jsonData: Data) {
+    public init(jsonData: Data) {
         self.data = jsonData
     }
 
