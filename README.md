@@ -17,6 +17,8 @@ pod 'RDFNetworking', :git => 'https://github.com/rdforte/RDFNetworking.git'
 3. Perform your Request.
 
 ```
+import RDFNetworking
+
 let networking = RDFNetworking(session: URLSession.shared)
 
 let parameters: Parameters = [
@@ -42,3 +44,22 @@ let request = APIRequest(method: .post, path: path, parameters: parameters, head
 }
 ```
 The performRequest method takes a type of type Codable which represents the response object that you will be expecting to get back from your network request. 
+
+## Custom JSONDecoder Option
+The performRequest method also has the ability to take a custom JSONDecoder object allowing you with more flexiblity when decoding your response data.
+
+```
+import RDFNetworking
+
+let customDecoder = JSONDecoder()
+customDecoder.dateDecodingStrategy = .iso8601
+
+ networking.performRequest(expectingType: User.self, withRequest: request, decoder: customDecoder) { (result) in
+    switch result {
+    case .success(let auth):
+        print(auth)
+    case .failure(let error):
+        print(error.localizedDescription)
+    }
+}
+```
