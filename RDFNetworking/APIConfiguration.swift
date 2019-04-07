@@ -47,7 +47,7 @@ public class RDFNetworking {
     private let session: URLSessionProtocol
     public static let jsonDecoder: JSONDecoder = JSONDecoder()
 
-    init(session: URLSessionProtocol) {
+    public init(session: URLSessionProtocol) {
         self.session = session
     }
 
