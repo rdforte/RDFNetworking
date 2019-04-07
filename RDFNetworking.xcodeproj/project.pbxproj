@@ -15,7 +15,6 @@
 		00DF9DA42258646A0095C20A /* MockSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DF9D9D2258646A0095C20A /* MockSession.swift */; };
 		00DF9DA52258646A0095C20A /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DF9D9E2258646A0095C20A /* Request.swift */; };
 		00DF9DA62258646A0095C20A /* SessionConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DF9D9F2258646A0095C20A /* SessionConfiguration.swift */; };
-		00DF9DA9225864880095C20A /* MockUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DF9DA8225864880095C20A /* MockUser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,7 +28,6 @@
 		00DF9D9D2258646A0095C20A /* MockSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockSession.swift; sourceTree = "<group>"; };
 		00DF9D9E2258646A0095C20A /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		00DF9D9F2258646A0095C20A /* SessionConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionConfiguration.swift; sourceTree = "<group>"; };
-		00DF9DA8225864880095C20A /* MockUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockUser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +62,6 @@
 			children = (
 				00DF9D83225863A50095C20A /* RDFNetworking.h */,
 				00DF9D84225863A50095C20A /* Info.plist */,
-				00DF9DA8225864880095C20A /* MockUser.swift */,
 				00DF9D9A225864690095C20A /* APIConfiguration.swift */,
 				00DF9D9B225864690095C20A /* HTTPMethod.swift */,
 				00DF9D9D2258646A0095C20A /* MockSession.swift */,
@@ -162,7 +159,6 @@
 				00DF9DA22258646A0095C20A /* HTTPMethod.swift in Sources */,
 				00DF9DA52258646A0095C20A /* Request.swift in Sources */,
 				00DF9DA42258646A0095C20A /* MockSession.swift in Sources */,
-				00DF9DA9225864880095C20A /* MockUser.swift in Sources */,
 				00DF9DA12258646A0095C20A /* APIConfiguration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
