@@ -10,7 +10,10 @@ RDFNetworking also wraps URLSession and URLSessionDataTask to allow you to run U
 2. Structure your request with a APIRequest object.
 3. Perform your Request.
 
-```let parameters: Parameters = [
+```
+let networking = RDFNetworking(session: URLSession.shared)
+
+let parameters: Parameters = [
     "email": "Ryan@tester55.com",
     "password": "testing12",
     "type": "business",
@@ -30,4 +33,5 @@ let request = APIRequest(method: .post, path: path, parameters: parameters, head
     case .failure(let error):
         print(error.localizedDescription)
     }
-}```
+}
+```
