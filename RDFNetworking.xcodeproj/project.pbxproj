@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00827893225868040060A8AE /* MockUser.js in Resources */ = {isa = PBXBuildFile; fileRef = 00827892225868040060A8AE /* MockUser.js */; };
 		00DF9D91225863A50095C20A /* RDFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 00DF9D83225863A50095C20A /* RDFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		00DF9DA12258646A0095C20A /* APIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DF9D9A225864690095C20A /* APIConfiguration.swift */; };
 		00DF9DA22258646A0095C20A /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DF9D9B225864690095C20A /* HTTPMethod.swift */; };
@@ -18,7 +17,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		00827892225868040060A8AE /* MockUser.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = MockUser.js; sourceTree = "<group>"; };
 		00DF9D80225863A50095C20A /* RDFNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RDFNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		00DF9D83225863A50095C20A /* RDFNetworking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RDFNetworking.h; sourceTree = "<group>"; };
 		00DF9D84225863A50095C20A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -68,7 +66,6 @@
 				00DF9D9E2258646A0095C20A /* Request.swift */,
 				00DF9D9C225864690095C20A /* Result.swift */,
 				00DF9D9F2258646A0095C20A /* SessionConfiguration.swift */,
-				00827892225868040060A8AE /* MockUser.js */,
 			);
 			path = RDFNetworking;
 			sourceTree = "<group>";
@@ -143,7 +140,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00827893225868040060A8AE /* MockUser.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
