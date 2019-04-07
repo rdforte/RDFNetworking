@@ -157,6 +157,7 @@ Note: You do not have to perform your unit test this way, I just prefer to do it
         // configure request
         let path = "https://dev.test.com"
         let request = APIRequest(method: .post, path: path, parameters: nil, headers: nil)
+        
         //retrieve json data from local file
         guard let userPath = Bundle.main.path(forResource: "MockUser", ofType: "js") else {
             XCTAssert(false, "path should exist for resource MockUser"); return
@@ -164,9 +165,11 @@ Note: You do not have to perform your unit test this way, I just prefer to do it
         guard let data = try? Data(contentsOf: URL(fileURLWithPath: userPath), options: .mappedIfSafe) else {
             XCTAssert(false, "data from MockUser.js should convert to Data"); return
         }
+        
         // configure mock session with mock data
         let session = MockSession(jsonData: data)
         let networking = RDFNetworking(session: session)
+        
         // test networking request with mock session
         networking.performRequest(expectingType: MockUser.self, withRequest: request) { (result) in
             switch result {
