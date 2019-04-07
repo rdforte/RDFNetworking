@@ -11,7 +11,7 @@ RDFNetworking also wraps URLSession and URLSessionDataTask to allow you to run U
 pod 'RDFNetworking', :git => 'https://github.com/rdforte/RDFNetworking.git'
 ```
 
-## Basic implementation
+## Basic Implementation
 1. Configure RDFNetworking with URLSession instance.
 2. Structure your request with a APIRequest object.
 3. Perform your Request.
@@ -63,3 +63,72 @@ customDecoder.dateDecodingStrategy = .iso8601
     }
 }
 ```
+
+## Advanced Usage
+The advanced usage allows you to construct an enum that conforms to the Request protocol, resulting in generic code that is more concise, clear and easier to maintain for large scale projects that requre multiple types of networking requests.
+
+```
+enum AuthRequest: Request {
+
+    case signUp(email: String, password: String, firstName: String, lastName: String)
+    case signIn(email: String, password: String)
+
+    var method: HTTPMethod {
+        switch self {
+        case .signUp, .signIn:
+            return .post
+        }
+    }
+
+    var path: String {
+        switch self {
+        case .signUp:
+            return "https://Tester/api/v1/auth/signup"
+        case .signIn:
+            return "https://Tester/api/v1/auth/signin"
+        }
+    }
+
+    var headers: Headers? {
+        switch self {
+        case .signUp, .signIn:
+            return ["Content-Type": "application/json"]
+
+        }
+    }
+
+    var parameters: Parameters? {
+        switch self {
+        case .signUp(let email, let password, let firstName, let lastName):
+            return [
+                "email": email,
+                "password": password,
+                "firstName": firstName,
+                "lastName": lastName
+            ]
+        case .signIn(let email, let password):
+            return [
+                "email": email,
+                "password": password
+            ]
+        }
+    }
+
+}
+```
+Once we have constructed our enum and conformed to all the necessary properties it is just a matter of then feeding our request to our performRequest method. For example:
+
+```
+let singInRequst = AuthRequest.signIn(email: "test@test.com", password: "test")
+
+ networking.performRequest(expectingType: User.self, withRequest: signInRequest, decoder: customDecoder) { (result) in
+    switch result {
+    case .success(let auth):
+        print(auth)
+    case .failure(let error):
+        print(error.localizedDescription)
+    }
+}
+```
+
+## Unit Tests
