@@ -30,7 +30,7 @@ public class MockSession: URLSessionProtocol {
         guard let url = request.url else {
             completionHandler(nil, nil, MockError.mockURLFailed); return MockDataTask()
         }
-        let response = MockHTTPURLResponse(url: url)
+        let response = MockHTTPURLResponse(url: url, method: request.httpMethod)
         completionHandler(data, response, nil)
         return MockDataTask()
     }
@@ -41,14 +41,10 @@ public class MockDataTask: URLSessionDataTaskProtocol {
     }
 }
 
-internal protocol HTTPURLResponseProtocol {
-    var statusCode: Int { get }
-}
-
 internal class MockHTTPURLResponse: HTTPURLResponse {
 
-    init?(url: URL) {
-        super.init(url: url, statusCode: 200, httpVersion: "GET", headerFields: nil)
+    init?(url: URL, method: String?) {
+        super.init(url: url, statusCode: 200, httpVersion: method ?? "GET", headerFields: nil)
     }
 
     required init?(coder aDecoder: NSCoder) {
