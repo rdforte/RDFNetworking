@@ -27,12 +27,10 @@ import RDFNetworking
 let networking = RDFNetworking(session: URLSession.shared)
 
 let parameters: Parameters = [
-    "email": "Ryan@tester55.com",
+    "email": "Ryan@test.com",
     "password": "testing12",
-    "type": "business",
     "firstName": "Ryan",
-    "lastName": "Forte",
-    "phone": "0426252825"
+    "lastName": "Forte"
 ]
 
 let headers: Headers = ["Content-Type": "application/json"]
