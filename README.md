@@ -1,2 +1,2 @@
 # RDFNetworking
-Simple and easy to use networking wrapper for Networking with JSON
+### Testing + Networking made Easy.
