@@ -121,7 +121,7 @@ Once we have constructed our enum and conformed to all the necessary properties 
 ```
 let singInRequst = AuthRequest.signIn(email: "test@test.com", password: "test")
 
- networking.performRequest(expectingType: User.self, withRequest: signInRequest, decoder: customDecoder) { (result) in
+ networking.performRequest(expectingType: User.self, withRequest: signInRequest) { (result) in
     switch result {
     case .success(let auth):
         print(auth)
@@ -132,3 +132,51 @@ let singInRequst = AuthRequest.signIn(email: "test@test.com", password: "test")
 ```
 
 ## Unit Tests
+RDFNetworking creates a wrapper aroung URLSession and URLSessionDataTask allowing for easy testing of networking with no network latency. The steps to perfomr your tests are as follows:
+1. structure your RDFNetworking with an instance of MockSession.
+2. MockSession takes data in the form of JSON. This is the JSON that you will be expecting to get back in your response.
+3. perform your request with the performRequest method with the appropriate type you are expecting in your response and custom 
+    decoder object if needed for decoding the JSON data.
+4. Perform the appropriate checks to make sure you get the response you are looking for.
+
+```
+MockUser.js file
+
+{
+"id": "5ca70f09077c40001c0fffbc",
+"firstName": "Ryan",
+"lastName": "Forte"
+}
+
+```
+Above is an example of a file containing a JSON object which I will convert to data and feed to my MockSession Instance.
+Note: You do not have to perform your unit test this way, I just prefer to do it this way for ease of use and clarity.
+
+```
+  func testNetworking() {
+        // configure request
+        let path = "https://dev.test.com"
+        let request = APIRequest(method: .post, path: path, parameters: nil, headers: nil)
+        //retrieve json data from local file
+        guard let userPath = Bundle.main.path(forResource: "MockUser", ofType: "js") else {
+            XCTAssert(false, "path should exist for resource MockUser"); return
+        }
+        guard let data = try? Data(contentsOf: URL(fileURLWithPath: userPath), options: .mappedIfSafe) else {
+            XCTAssert(false, "data from MockUser.js should convert to Data"); return
+        }
+        // configure mock session with mock data
+        let session = MockSession(jsonData: data)
+        let networking = RDFNetworking(session: session)
+        // test networking request with mock session
+        networking.performRequest(expectingType: MockUser.self, withRequest: request) { (result) in
+            switch result {
+            case .success(let user):
+                XCTAssertNotNil(user, "user object should not be nil")
+            case .failure(let error):
+                XCTAssert(false, "test should not reach error: \(error.localizedDescription)")
+            }
+        }
+
+    }
+```
+If all goes well your test should succeed.
