@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
 
   s.description  = "call SimpleJSON.get to fetch json data and SimpleJSON.post to post JSON data"
 
-  s.homepage     = "https://github.com/rdforte/SimpleJSON"
+  s.homepage     = "https://github.com/rdforte/RDFNetworking"
 
 
   s.license      = "MIT"
@@ -29,7 +29,7 @@ Pod::Spec.new do |s|
 
   s.author             = { "ryan forte" => "forte.ryan@hotmail.com" }
 
-  s.source       = { :git => "https://github.com/rdforte/SimpleJSON", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/rdforte/RDFNetworking", :tag => "#{s.version}" }
 
   s.source_files  = "RDFNetworking"
   s.exclude_files = "Classes/Exclude"
