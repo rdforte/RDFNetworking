@@ -41,3 +41,4 @@ let request = APIRequest(method: .post, path: path, parameters: parameters, head
     }
 }
 ```
+The performRequest method takes a type of type Codable which represents the response object that you will be expecting to get back from your network request. 
