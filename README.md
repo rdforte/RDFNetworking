@@ -10,6 +10,11 @@ RDFNetworking also wraps URLSession and URLSessionDataTask to allow you to run U
 ```
 pod 'RDFNetworking', :git => 'https://github.com/rdforte/RDFNetworking.git'
 ```
+### Current Version
+1.0.0
+
+### What to expect in version 1.1.0
+- Multipart form data upload
 
 ## Basic Implementation
 1. Configure RDFNetworking with URLSession instance.
