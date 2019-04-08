@@ -39,8 +39,8 @@ let request = APIRequest(method: .post, path: path, parameters: parameters, head
 
  networking.performRequest(expectingType: User.self, withRequest: request) { (result) in
     switch result {
-    case .success(let auth):
-        print(auth)
+    case .success(let user):
+        print(user)
     case .failure(let error):
         print(error.localizedDescription)
     }
